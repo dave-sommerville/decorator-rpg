@@ -4,7 +4,7 @@ namespace Decorator_RPG
     public interface ICharacter
     {
         int Defense();
-        int moveSpeed();
+        int MoveSpeed();
 
         int Strength();
         int Intellect();
