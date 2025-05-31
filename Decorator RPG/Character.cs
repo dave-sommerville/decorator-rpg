@@ -9,9 +9,9 @@ namespace Decorator_RPG
         public int Strength() => 10;
         public int Intellect() => 10;
         public int Agility() => 10;
-        public void GetDescription()
+        public string GetDescription()
         {
-
+            return $"{Name} has {Defense()} defense, {MoveSpeed()} move speed, {Strength()} strength, {Intellect()} intellect, and {Agility()} agility.\nInventory:\n";
         }
     }
 }
