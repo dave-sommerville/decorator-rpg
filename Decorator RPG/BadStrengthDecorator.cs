@@ -2,7 +2,7 @@
 {
     public class BadStrengthDecorator : CharacterDecorator
     {
-        private readonly Scenario scene = new Scenario("Mittens of Polite Conflict", "You make out a figure deep in the tunnel. As you approach, you recognize it as a training dummy. It falls over before you touch it. You apologize instinctively. On a nearby hook hang the Mittens of Polite Conflict.");
+        private readonly Scenario _scene = new Scenario("Mittens of Polite Conflict", "You make out a figure deep in the tunnel. As you approach, you recognize it as a training dummy. It falls over before you touch it. You apologize instinctively. On a nearby hook hang the Mittens of Polite Conflict.");
         public BadStrengthDecorator(ICharacter character) : base(character)
         {
         }

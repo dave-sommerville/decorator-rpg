@@ -3,6 +3,7 @@
     public abstract class CharacterDecorator : ICharacter
     {
         protected ICharacter _character;
+        private readonly Scenario _scene;
         public CharacterDecorator(ICharacter character)
         {
             _character = character;
@@ -13,5 +14,7 @@
         public virtual int Intellect() => _character.Intellect();
         public virtual int Agility() => _character.Agility();
         public virtual string GetDescription() => _character.GetDescription();
+        public void SceneDescription() => _character.SceneDescription();
+
     }
 }
