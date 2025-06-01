@@ -2,10 +2,12 @@
 {
     public class BadMoveSpeedDecorator : CharacterDecorator
     {
-        private readonly Scenario scene = new Scenario("Velcro Sandals", "You walk through a dusty hallway. There's a buzz from something in the corner. You trip over your loose sock? Luckily in the dust in front you, you find the Velcro Sandals");
         public BadMoveSpeedDecorator(ICharacter character) : base(character)
         {
+            _character = character;
+            EquipmentName = "Velcro Sandals";
+            Description = "You walk through a dusty hallway. A fan whirs slowly in the corner. You trip over a loose sock. At the end lies a pair of **Velcro Sandals**, squeaky with every step.";
         }
-        public override int MoveSpeed() => _character.MoveSpeed() - 5;
+        public override int MoveSpeed() => _character.MoveSpeed() + 5;
     }
 }

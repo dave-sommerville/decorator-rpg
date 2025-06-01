@@ -5,14 +5,12 @@ namespace Decorator_RPG
 {
     public class GoodDefenseDecorator : CharacterDecorator
     {
-        public readonly Scenario Scene = new Scenario("Bedrock Shield", "The chamber trembles as stone hands rise from the ground. You face the Golem Warden, a monstrous being made of stone"
-                + "You endure its crushing blows and strike your weapon into its core. After collapsing into rubble, you see your sought after artifact. You have found the Bedrock Shield");
-
         public GoodDefenseDecorator(ICharacter character) : base(character)
         {
-            
+            _character = character;
+            EquipmentName = "Bedrock Shield, ";
+            Description = "The chamber trembles as stone hands rise from the ground. You face the Golem Warden, protector of the first Aspect. You endure its crushing blows and strike its core. From its remains, you pull the Granite Shield.";
         }
-
         public override int Defense() => _character.Defense() + 15;
     }
 }

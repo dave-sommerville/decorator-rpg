@@ -2,9 +2,12 @@
 {
     public class GoodIntellectDecorator : CharacterDecorator
     {
-        private readonly Scenario scene = new Scenario("Silverwoven Robe", "Silence. A hall of mirrors and illusions. You decode symbols, fight your inner demons, and uncover truths. A spirit hands you the Silverwoven Robe.");
         public GoodIntellectDecorator(ICharacter character) : base(character)
         {
+            _character = character;
+            EquipmentName = "Silverwoven Robe, ";
+            Description = "You enter a scenario where you must face your own limitations. You must overcome challenges to gain new abilities and equipment.\n" +
+                          "You find yourself in a hall of mirrors, each reflecting a different version of yourself. You must solve the riddles of the mirrors to gain the Silverwoven Robe.";
         }
         public override int Intellect() => base.Intellect() + 5;
     }
