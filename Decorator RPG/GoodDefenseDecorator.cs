@@ -14,6 +14,5 @@ namespace Decorator_RPG
         }
 
         public override int Defense() => _character.Defense() + 15;
-        public override string GetDescription() => _character.GetDescription() + "tbd";
     }
 }

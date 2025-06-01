@@ -5,7 +5,7 @@ namespace Decorator_RPG
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Scenario? Scenario { get; set; }
+        private Scenario? _scene;
         public int Defense() => 10;
         public int MoveSpeed() => 10;
         public int Strength() => 10;
@@ -17,9 +17,9 @@ namespace Decorator_RPG
         }
         public void SceneDescription()
         {
-            if (Scenario != null)
+            if (_scene != null)
             {
-                Console.WriteLine(Scenario.ScenarioDescription);
+                Console.WriteLine(_scene.ScenarioDescription);
             }
             else
             {

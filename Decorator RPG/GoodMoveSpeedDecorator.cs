@@ -8,6 +8,5 @@
         {
         }
         public override int MoveSpeed() => _character.MoveSpeed() + 5;
-        public override string GetDescription() => _character.GetDescription() + "";
     }
 }

@@ -7,7 +7,6 @@
         {
         }
         public override int Agility() => base.Agility() - 5;
-        public override string GetDescription() => _character.GetDescription() + "";
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Runtime.ConstrainedExecution;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace Decorator_RPG
@@ -85,7 +86,7 @@ namespace Decorator_RPG
                     break;
                 case 3:
                     Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription);
+                    Console.WriteLine(_character.GetDescription());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -120,7 +121,7 @@ namespace Decorator_RPG
                     break;
                 case 3:
                     Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription);
+                    Console.WriteLine(_character.GetDescription());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -134,7 +135,7 @@ namespace Decorator_RPG
         }
         public void LevelFour()
         {
-            Console.WriteLine("You arrive at your first choice.");
+            Console.WriteLine("Wearily, you approach another choice.");
             Console.WriteLine("To your right the wall caved in, revealing an oppressive darkness");
             Console.WriteLine("The way to your right is a strong, but ajar, metal door.");
             Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
@@ -155,7 +156,7 @@ namespace Decorator_RPG
                     break;
                 case 3:
                     Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription);
+                    Console.WriteLine(_character.GetDescription());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -169,7 +170,7 @@ namespace Decorator_RPG
         }
         public void LevelFive()
         {
-            Console.WriteLine("You arrive at your first choice.");
+            Console.WriteLine("You travel is nearly over, only one choice left to go.");
             Console.WriteLine("To your left, there is a oaken door with Elvish runes.");
             Console.WriteLine("The path on the left has a tunnel descending");
             Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
@@ -192,7 +193,7 @@ namespace Decorator_RPG
                     break;
                 case 3:
                     Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription);
+                    Console.WriteLine(_character.GetDescription());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -203,6 +204,81 @@ namespace Decorator_RPG
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
+        }
+        public int[] FinalBossStats()
+        {
+            int[] statsArray = new int[5];
+            for(int i = 0; i < statsArray.Length; i++)
+            {
+                statsArray[i] = RandIndex();
+            }
+            return statsArray;
+        }
+        public int[] FinalPlayerStats()
+        {
+            int[] statsArray = new int[5];
+            statsArray[0] = _character.Strength();
+            statsArray[1] = _character.MoveSpeed();
+            statsArray[2] = _character.Defense();
+            statsArray[3] = _character.Intellect();
+            statsArray[4] = _character.Agility();
+            return statsArray;
+        }
+        public bool[] FinalBossFight()
+        {
+            int[] player = FinalPlayerStats();
+            int[] boss = FinalBossStats();
+            bool[] results = new bool[5];
+
+            for (int i = 0; i < player.Length; i++)
+            {
+                if (player[i] > boss[i])
+                {
+                    results[i] = true; // Player wins this stat
+                }
+                else if (player[i] < boss[i])
+                {
+                    results[i] = false; // Boss wins this stat
+                }
+                else
+                {
+                    results[i] = false; // Tie, boss wins by default
+                }
+            }
+            return results;
+        }
+        public void ResultsReading(bool[] results)
+        {
+            int winCounter = 0;
+            string[] statNames = { "Strength", "Move Speed", "Defense", "Intellect", "Agility" };
+            Console.WriteLine(_character.GetDescription());
+            Console.WriteLine("Final Battle Results:");
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (results[i])
+                {
+                    Console.WriteLine($"You won the battle of {statNames[i]}!");
+                    winCounter++;
+                }
+                else
+                {
+                    Console.WriteLine($"You lost the battle {statNames[i]}. The final foe was too powerful.");
+                }
+            }
+            if(winCounter >= 3)
+            {
+                Console.WriteLine("Congratulations! You have defeated the final foe and completed your journey!");
+            }
+            else
+            {
+                Console.WriteLine("You were unable to defeat the final foe. Better luck next time!");
+            }
+        }
+        public int RandIndex()
+        {
+            Random rand = new Random();
+            int randIndex = rand.Next(9,14); // Set in relation to the boost from decorators, giving a small chance that even a bad item will win against foe
+            return randIndex;
         }
     }
 }

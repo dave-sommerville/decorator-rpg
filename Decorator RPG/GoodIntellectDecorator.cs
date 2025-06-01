@@ -7,6 +7,5 @@
         {
         }
         public override int Intellect() => base.Intellect() + 5;
-        public override string GetDescription() => _character.GetDescription() + "";
     }
 }

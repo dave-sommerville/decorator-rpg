@@ -7,6 +7,5 @@
         {
         }
         public override int Strength() => _character.Strength() - 5;
-        public override string GetDescription() => _character.GetDescription() + "";
     }
 }
