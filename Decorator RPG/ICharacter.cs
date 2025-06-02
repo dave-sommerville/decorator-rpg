@@ -9,6 +9,7 @@ namespace Decorator_RPG
         int Strength();
         int Intellect();
         int Agility();
+        int Level();
         string GetDescription();
         void SceneDescription();
     }

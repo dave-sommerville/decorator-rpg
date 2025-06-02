@@ -8,6 +8,7 @@ namespace Decorator_RPG
     public class Game
     {
         private ICharacter _character;
+        public int Level { get; private set; } = 1;
         public Game(ICharacter character)
         {
             _character = character;
@@ -41,11 +42,13 @@ namespace Decorator_RPG
                     GoodDefenseDecorator goodDefenseDecorator = new GoodDefenseDecorator(_character);
                     _character = goodDefenseDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 2:
                     BadDefenseDecorator badDefenseDecorator = new BadDefenseDecorator(_character);
                     _character = badDefenseDecorator;
+                    Level++;
                     _character.SceneDescription();
                     Console.WriteLine();
                     break;
@@ -74,14 +77,16 @@ namespace Decorator_RPG
             {
                 case 1:
                 GoodMoveSpeedDecorator goodMoveSpeedDecorator = new GoodMoveSpeedDecorator(_character);
-                _character = goodMoveSpeedDecorator;
-                _character.SceneDescription();
+                    _character = goodMoveSpeedDecorator;
+                    _character.SceneDescription();
+                    Level++;
                 Console.WriteLine();
                 break;
                 case 2:
                     BadMoveSpeedDecorator badMoveSpeedDecorator = new BadMoveSpeedDecorator(_character);
                     _character = badMoveSpeedDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 3:
@@ -111,12 +116,14 @@ namespace Decorator_RPG
                     GoodStrengthDecorator goodStrengthDecorator = new GoodStrengthDecorator(_character);
                     _character = goodStrengthDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 2:
                     BadStrengthDecorator badStrengthDecorator = new BadStrengthDecorator(_character);
                     _character = badStrengthDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 3:
@@ -146,12 +153,14 @@ namespace Decorator_RPG
                     GoodIntellectDecorator goodIntellectDecorator = new GoodIntellectDecorator(_character);
                     _character = goodIntellectDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 2: 
-                    BadStrengthDecorator badIntellectDecorator = new BadStrengthDecorator(_character);
+                    BadIntellectDecorator badIntellectDecorator = new BadIntellectDecorator(_character);
                     _character = badIntellectDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 3:
@@ -183,12 +192,14 @@ namespace Decorator_RPG
                     GoodAgilityDecorator goodAgilityDecorator = new GoodAgilityDecorator(_character);
                     _character = goodAgilityDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 2:
                     BadAgilityDecorator badAgilityDecorator = new BadAgilityDecorator(_character);
                     _character = badAgilityDecorator;
                     _character.SceneDescription();
+                    Level++;
                     Console.WriteLine();
                     break;
                 case 3:

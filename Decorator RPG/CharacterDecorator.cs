@@ -16,9 +16,11 @@
         public virtual int Strength() => _character.Strength();
         public virtual int Intellect() => _character.Intellect();
         public virtual int Agility() => _character.Agility();
+        public int Level() => _character.Level() + 1;
         public string GetDescription()
         {
             string desc =
+            $"Level: {Level()}" +
             $"\nStrength: {Strength()}" +
             $"\nMove Speed: {MoveSpeed()}" +
             $"\nDefense: {Defense()}" +
@@ -29,7 +31,7 @@
         }
         public void SceneDescription()
         {
-            if (SceneDescription != null)
+            if (Description != null)
             {
                 Console.WriteLine(Description);
             }
