@@ -54,7 +54,8 @@ namespace Decorator_RPG
                     break;
                 case 3:
                     Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription);
+                    Console.WriteLine(_character.GetDescription());
+                    Console.WriteLine(_character.Inventory());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -92,6 +93,7 @@ namespace Decorator_RPG
                 case 3:
                     Console.WriteLine("Player Stats:");
                     Console.WriteLine(_character.GetDescription());
+                    Console.WriteLine(_character.Inventory());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -129,6 +131,7 @@ namespace Decorator_RPG
                 case 3:
                     Console.WriteLine("Player Stats:");
                     Console.WriteLine(_character.GetDescription());
+                    Console.WriteLine(_character.Inventory());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -166,6 +169,7 @@ namespace Decorator_RPG
                 case 3:
                     Console.WriteLine("Player Stats:");
                     Console.WriteLine(_character.GetDescription());
+                    Console.WriteLine(_character.Inventory());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -205,6 +209,7 @@ namespace Decorator_RPG
                 case 3:
                     Console.WriteLine("Player Stats:");
                     Console.WriteLine(_character.GetDescription());
+                    Console.WriteLine(_character.Inventory);
                     Console.WriteLine();
                     break;
                 case 4:

@@ -12,6 +12,7 @@ namespace Decorator_RPG
         public int Agility() => 10;
         public string NameDisplay() => Name;
         public string DescriptionDisplay() => Description;
+        public string Inventory() => "Inventory:\n";
         public string GetDescription()
         {
             return $"{NameDisplay()}\n{DescriptionDisplay()} with {Defense()} defense, {MoveSpeed()} move speed, {Strength()} strength, {Intellect()} intellect, and {Agility()} agility.";

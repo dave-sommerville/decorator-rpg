@@ -13,5 +13,6 @@ namespace Decorator_RPG
         void SceneDescription();
         string DescriptionDisplay();
         string NameDisplay();
+        string Inventory();
     }
 }

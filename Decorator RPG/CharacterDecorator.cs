@@ -18,6 +18,7 @@
         public virtual int Agility() => _character.Agility();
         public string NameDisplay() => _character.NameDisplay();
         public string DescriptionDisplay() => _character.DescriptionDisplay();
+        public string Inventory() => _character.Inventory() + EquipmentName;
         public string GetDescription()
         {
             string desc =

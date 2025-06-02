@@ -6,7 +6,7 @@ namespace Decorator_RPG
         public BadDefenseDecorator(ICharacter character) : base(character) 
         {
             _character = character;
-            EquipmentName = "Slightly Bent Tray";
+            EquipmentName = "Slightly Bent Tray\n";
             Description = "A rock rolls toward you at alarming mediocrity. You parry it with your bare hands—mostly successfully.Behind it lies a lunch tray, slightly bent but oddly comforting.";
         }
         public override int Defense() => _character.Defense() + 5;
