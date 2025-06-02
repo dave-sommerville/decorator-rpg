@@ -9,7 +9,7 @@ namespace Decorator_RPG
         {
             _character = character;
             EquipmentName = "Bedrock Shield\n";
-            Description = "The chamber trembles as stone hands rise from the ground. You face the Golem Warden, protector of the first Aspect. You endure its crushing blows and strike its core. From its remains, you pull the Granite Shield.";
+            Description = "The chamber trembles as stone hands rise from the ground.\nYou face the Golem Warden, protector of the first Aspect.\nYou endure its crushing blows and strike its core.\nFrom its remains, you pull the Granite Shield.";
         }
         public override int Defense() => _character.Defense() + 15;
     }

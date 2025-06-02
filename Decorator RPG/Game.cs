@@ -34,8 +34,8 @@ namespace Decorator_RPG
             Console.WriteLine("You arrive at your first choice.");
             Console.WriteLine("The path to your right is stone hallway");
             Console.WriteLine("The path to your left is a wide dirt tunnel.");
-            Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
-            int choice = PrintMenu(4);
+            Console.WriteLine("1) Go right\n2) Go left\n3) View Player Stats\n4) Exit Program");
+            int choice = PrintMenu(3);
             switch(choice)
             {
                 case 1:
@@ -53,12 +53,6 @@ namespace Decorator_RPG
                     Console.WriteLine();
                     break;
                 case 3:
-                    Console.WriteLine("Player Stats:");
-                    Console.WriteLine(_character.GetDescription());
-                    Console.WriteLine(_character.Inventory());
-                    Console.WriteLine();
-                    break;
-                case 4:
                                         Console.WriteLine("Exiting the game. Goodbye!");
                     Environment.Exit(0);
                     break;
@@ -72,20 +66,21 @@ namespace Decorator_RPG
             Console.WriteLine("As you carry on you come to your next choice.");
             Console.WriteLine("To your left is a closed door holding back an intense heat.");
             Console.WriteLine("The way to your right is a long dark tunnel.");
-            Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
+            Console.WriteLine("1) Go right\n2) Go left\n3) View Player Stats\n4) Exit Program");
             int choice = PrintMenu(4);
             switch (choice)
             {
                 case 1:
-                GoodMoveSpeedDecorator goodMoveSpeedDecorator = new GoodMoveSpeedDecorator(_character);
-                    _character = goodMoveSpeedDecorator;
-                    _character.SceneDescription();
-                    Level++;
-                Console.WriteLine();
-                break;
-                case 2:
+
                     BadMoveSpeedDecorator badMoveSpeedDecorator = new BadMoveSpeedDecorator(_character);
                     _character = badMoveSpeedDecorator;
+                    _character.SceneDescription();
+                    Level++;
+                    Console.WriteLine();
+                    break;
+                case 2:
+                    GoodMoveSpeedDecorator goodMoveSpeedDecorator = new GoodMoveSpeedDecorator(_character);
+                    _character = goodMoveSpeedDecorator;
                     _character.SceneDescription();
                     Level++;
                     Console.WriteLine();
@@ -110,20 +105,20 @@ namespace Decorator_RPG
             Console.WriteLine("Pushing on, another choice comes your way.");
             Console.WriteLine("The way to your left is a long hallway with a light at the end.");
             Console.WriteLine("To your right is an ornate door.");
-            Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
+            Console.WriteLine("1) Go right\n2) Go left\n3) View Player Stats\n4) Exit Program");
             int choice = PrintMenu(4);
             switch (choice)
             {
                 case 1:
-                    GoodStrengthDecorator goodStrengthDecorator = new GoodStrengthDecorator(_character);
-                    _character = goodStrengthDecorator;
+                    BadStrengthDecorator badStrengthDecorator = new BadStrengthDecorator(_character);
+                    _character = badStrengthDecorator;
                     _character.SceneDescription();
                     Level++;
                     Console.WriteLine();
                     break;
                 case 2:
-                    BadStrengthDecorator badStrengthDecorator = new BadStrengthDecorator(_character);
-                    _character = badStrengthDecorator;
+                    GoodStrengthDecorator goodStrengthDecorator = new GoodStrengthDecorator(_character);
+                    _character = goodStrengthDecorator;
                     _character.SceneDescription();
                     Level++;
                     Console.WriteLine();
@@ -148,7 +143,7 @@ namespace Decorator_RPG
             Console.WriteLine("Wearily, you approach another choice.");
             Console.WriteLine("To your right the wall caved in, revealing an oppressive darkness");
             Console.WriteLine("The way to your right is a strong, but ajar, metal door.");
-            Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
+            Console.WriteLine("1) Go right\n2) Go left\n3) View Player Stats\n4) Exit Program");
             int choice = PrintMenu(4);
             switch(choice)
             {
@@ -186,7 +181,7 @@ namespace Decorator_RPG
             Console.WriteLine("You travel is nearly over, only one choice left to go.");
             Console.WriteLine("To your left, there is a oaken door with Elvish runes.");
             Console.WriteLine("The path on the left has a tunnel descending");
-            Console.WriteLine("1) Go right\n2) Go Left\n3) View Player Stats\n4) Exit Program");
+            Console.WriteLine("1) Go right\n2) Go left\n3) View Player Stats\n4) Exit Program");
             Console.WriteLine();
             Console.WriteLine();
             int choice = PrintMenu(4);
@@ -209,7 +204,7 @@ namespace Decorator_RPG
                 case 3:
                     Console.WriteLine("Player Stats:");
                     Console.WriteLine(_character.GetDescription());
-                    Console.WriteLine(_character.Inventory);
+                    Console.WriteLine(_character.Inventory());
                     Console.WriteLine();
                     break;
                 case 4:
@@ -242,6 +237,11 @@ namespace Decorator_RPG
         }
         public bool[] FinalBossFight()
         {
+            Console.WriteLine("You have arrived at the end of your journey. Your choice have granted you the final boons.");
+            Console.WriteLine(_character.Inventory());
+            Console.WriteLine("You are now ready to face the final foe. Prepare yourself for the ultimate battle!");
+            Console.WriteLine("The final foe appears, a towering figure shrouded in darkness, its eyes glowing with malice.");
+            Console.WriteLine("It roars, shaking the ground beneath you, and you feel the weight of its power. You must now face it in a battle of stats!");
             int[] player = FinalPlayerStats();
             int[] boss = FinalBossStats();
             bool[] results = new bool[5];
@@ -293,7 +293,7 @@ namespace Decorator_RPG
         public int RandIndex()
         {
             Random rand = new Random();
-            int randIndex = rand.Next(9,14); // Set in relation to the boost from decorators, giving a small chance that even a bad item will win against foe
+            int randIndex = rand.Next(3,14) + 10; // Set in relation to the boost from decorators, giving a small chance that even a bad item will win against foe
             return randIndex;
         }
     }
