@@ -10,10 +10,11 @@ namespace Decorator_RPG
         public int Strength() => 10;
         public int Intellect() => 10;
         public int Agility() => 10;
-        public int Level() => 0;
+        public string NameDisplay() => Name;
+        public string DescriptionDisplay() => Description;
         public string GetDescription()
         {
-            return $"{Name} Level: {Level()} has {Defense()} defense, {MoveSpeed()} move speed, {Strength()} strength, {Intellect()} intellect, and {Agility()} agility.";
+            return $"{NameDisplay()}\n{DescriptionDisplay()} with {Defense()} defense, {MoveSpeed()} move speed, {Strength()} strength, {Intellect()} intellect, and {Agility()} agility.";
         }
         public void SceneDescription()
         { 

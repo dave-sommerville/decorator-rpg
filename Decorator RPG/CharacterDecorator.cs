@@ -16,18 +16,19 @@
         public virtual int Strength() => _character.Strength();
         public virtual int Intellect() => _character.Intellect();
         public virtual int Agility() => _character.Agility();
-        public int Level() => _character.Level() + 1;
+        public string NameDisplay() => _character.NameDisplay();
+        public string DescriptionDisplay() => _character.DescriptionDisplay();
         public string GetDescription()
         {
             string desc =
-            $"Level: {Level()}" +
+            $"{NameDisplay()}" +
+            $"{DescriptionDisplay()}" + 
             $"\nStrength: {Strength()}" +
             $"\nMove Speed: {MoveSpeed()}" +
             $"\nDefense: {Defense()}" +
             $"\nIntellect: {Intellect()}" +
             $"\nAgility: {Agility()}";
             return desc;
-            
         }
         public void SceneDescription()
         {
